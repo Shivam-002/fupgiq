@@ -14,6 +14,10 @@ export class ApiError extends Error {
   }
 }
 
+// 4xx answers won't change on a retry
+export const isRetryable = (error: Error) =>
+  !(error instanceof ApiError && error.status >= 400 && error.status < 500)
+
 export async function getForecast(at: string, signal?: AbortSignal): Promise<Forecast> {
   let response: Response
   try {

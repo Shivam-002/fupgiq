@@ -3,7 +3,7 @@ import { ArrowDownUp, ShieldCheck, Target, Wind } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { formatDay, formatGWh, formatMW, formatPercent, formatTime } from '@/lib/format'
-import { quantile } from '@/lib/stats'
+import { safetyMargin } from '@/lib/stats'
 import type { Forecast, ForecastPoint, TrackRecord } from '@/lib/types'
 import { StatTile } from './stat-tile'
 import { ChartAreaSkeleton } from './view-skeleton'
@@ -95,7 +95,7 @@ function DayTiles({ energyMwh, trackRecord }: DayTilesProps) {
 
 function SafetyMarginTile({ errors }: { errors: number[] | null }) {
   const [confidence, setConfidence] = useState(90)
-  const margin = errors ? Math.max(0, quantile(errors, confidence / 100)) : null
+  const margin = errors ? safetyMargin(errors, confidence / 100) : null
 
   return (
     <StatTile
