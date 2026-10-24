@@ -2,7 +2,7 @@
 
 Shows the latest GB wind forecast available when a day-ahead purchase is made, and how accurate past forecasts have been. Data from Elexon BMRS (WINDFOR forecasts, FUELHH actuals).
 
-**Live app:** _link to be added_
+**Live app:** https://fupgiq.vercel.app
 
 ## Run locally
 
