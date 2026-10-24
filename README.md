@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Docker (backend): `docker build -t wind-api ./backend && docker run -p 8000:8000 wind-api`
+Docker (both): `docker compose up --build` → http://localhost:8080
 
 ## Structure
 
