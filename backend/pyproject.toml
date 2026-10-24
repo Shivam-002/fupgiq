@@ -1,0 +1,30 @@
+[project]
+name = "wind-monitor-api"
+version = "0.1.0"
+description = "API serving GB day-ahead wind forecasts and their accuracy"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.161.1",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.16.1",
+    "tzdata>=2026.5",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+]
